@@ -41,11 +41,20 @@ const removerItem = (indice) =>{
     banco.splice(indice, 1);
     atualizaTela();
 }
+
+const atualizarItem = (indice) =>{
+    banco[indice].status =  banco[indice].status === '' ? 'checked':'';
+    atualizaTela();
+}
 const clickItem = (evento) => {
     const elemento = evento.target;
     if(elemento.type==='button'){
         const indice = elemento.dataset.indice; 
         removerItem(indice);
+    }else if (elemento.type ==='checkbox'){
+        const indice = elemento.dataset.indice;
+        atualizarItem(indice)
+
     }
 }
 
