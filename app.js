@@ -5,6 +5,7 @@
 let banco = [
     { 'tarefa': 'Estudar React-Native', 'status':''},
     { 'tarefa': 'Estudar JS', 'status':'checked'},
+    { 'tarefa': 'Estudar HTML5', 'status':'checked'},
 ];
 
    const criarItem = (tarefa, status) => {
@@ -12,13 +13,13 @@ let banco = [
    item.classList.add('todo__item');
    item.innerHTML = `
     <input type="checkbox" ${status}>
-    <div>${tarefa }</div>
+    <div>${tarefa}</div>
     <input type="button" value="X">
    `;
    document.getElementById('todoList').appendChild(item);
 }
 
-const atualizaTela = () =>{
-    banco.forEach(item => criarItem(item.tarefa));
+const atualizaTela = () => {
+    banco.forEach(item => criarItem(item.tarefa, item.status));
 }
 atualizaTela();
